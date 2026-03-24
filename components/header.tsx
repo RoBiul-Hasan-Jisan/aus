@@ -88,8 +88,8 @@ export default function Header() {
                 onClick={() => setIsOpen(false)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                   pathname === item.href
-                    ? 'bg-blue-600 text-white'
-                    : 'text-gray-600 hover:bg-gray-100'
+  ? 'bg-[#0d5861] text-white'
+  : 'text-gray-600 hover:bg-[#0d5861]/10'
                 }`}
               >
                 {item.label}

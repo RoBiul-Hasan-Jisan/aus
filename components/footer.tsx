@@ -45,7 +45,8 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.path}
-                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                    className="transition-colors hover:text-[#0d5861]"
+style={{ color: '#0d5861' }}
                   >
                     {link.name}
                   </Link>
