@@ -3,14 +3,18 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+type CTA = {
+  label: string
+  href: string
+}
+
 interface HeroSectionProps {
   title: string
   subtitle?: string
-  cta?: {
-    text: string
-    href: string
-  }
+  cta?: CTA
   showImage?: boolean
+  imageSrc?: string
+  imageAlt?: string
 }
 
 export default function HeroSection({
@@ -18,40 +22,43 @@ export default function HeroSection({
   subtitle,
   cta,
   showImage = true,
+  imageSrc = '/images/herosection3.jpg',
+  imageAlt = 'Hero background image',
 }: HeroSectionProps) {
   return (
-    <section className="relative w-full bg-slate-900 overflow-hidden">
-
-      {/* Background */}
+    <section
+      aria-label="Hero Section"
+      className="relative w-full overflow-hidden bg-slate-900"
+    >
+      {/* Background Image */}
       {showImage && (
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/ocean-hero.jpg"
-            alt="Maritime background"
+            src={imageSrc}
+            alt={imageAlt}
             fill
-            className="object-cover object-center"
             priority
+            sizes="100vw"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-slate-900/75" />
+          <div className="absolute inset-0 bg-slate-900/70" />
         </div>
       )}
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-        
-        <div className="max-w-2xl">
-
-          {/* Small Accent */}
-          <div className="h-[2px] w-10 bg-blue-600 mb-4" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div className="max-w-2xl space-y-5">
+          {/* Accent Line */}
+          <div className="h-0.5 w-12 bg-blue-600" />
 
           {/* Title */}
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white leading-snug mb-4">
+          <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
             {title}
           </h1>
 
           {/* Subtitle */}
           {subtitle && (
-            <p className="text-sm sm:text-base text-slate-300 mb-6 leading-relaxed">
+            <p className="text-base leading-relaxed text-slate-300 sm:text-lg">
               {subtitle}
             </p>
           )}
@@ -60,18 +67,16 @@ export default function HeroSection({
           {cta && (
             <Link
               href={cta.href}
-              className="inline-block bg-blue-700 hover:bg-blue-600 text-white text-xs sm:text-sm px-5 py-2.5 rounded-sm font-medium transition"
+              className="inline-flex items-center justify-center rounded-md bg-blue-700 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
-              {cta.text}
+              {cta.label}
             </Link>
           )}
-
         </div>
       </div>
 
-      {/* Subtle Bottom Divider (instead of big curve) */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/10" />
-
+      {/* Bottom Divider */}
+      <div className="absolute bottom-0 left-0 h-px w-full bg-white/10" />
     </section>
   )
 }
