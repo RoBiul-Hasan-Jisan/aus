@@ -73,11 +73,9 @@ export default function Home() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group flex flex-col h-full border border-slate-200 rounded-sm p-8 hover:border-blue-800 hover:shadow-md transition-all duration-300 relative overflow-hidden bg-white"
+                className="flex flex-col h-full border border-slate-200 border-t-2 border-t-blue-800 rounded-sm p-8 bg-white"
               >
-                {/* Subtle left accent border on hover */}
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-800 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-                <h3 className="text-lg font-bold mb-3 text-slate-900 group-hover:text-blue-800 transition-colors">
+                <h3 className="text-lg font-bold mb-3 text-slate-900">
                   {service.title}
                 </h3>
                 <p className="text-slate-600 leading-relaxed text-sm flex-grow">
@@ -139,7 +137,7 @@ export default function Home() {
             </ul>
             <Link
               href="/why-auspac"
-              className="inline-flex items-center gap-2 mt-8 text-sm font-bold text-blue-800 hover:text-blue-900 hover:underline underline-offset-4 transition-all"
+              className="inline-flex items-center gap-2 mt-8 text-sm font-bold text-blue-800"
             >
               Learn more about our approach <span>&rarr;</span>
             </Link>
@@ -165,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-slate-900 text-white">
+      <section className="py-16 bg-slate-500 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
             <h2 className="text-2xl font-bold mb-2">
@@ -177,7 +175,7 @@ export default function Home() {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 bg-white text-slate-900 px-8 py-3.5 rounded-sm text-sm font-bold hover:bg-slate-100 transition-colors shadow-sm"
+            className="shrink-0 bg-white text-slate-900 px-8 py-3.5 rounded-sm text-sm font-bold shadow-sm"
           >
             Contact Us Today
           </Link>

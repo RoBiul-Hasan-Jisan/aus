@@ -1,7 +1,5 @@
-'use client'
-
 import HeroSection from '@/components/hero-section'
-import { CheckCircle2 } from 'lucide-react'
+import Link from 'next/link'
 
 export default function AboutPage() {
   const expertise = [
@@ -16,99 +14,76 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="w-full">
-      {/* Hero */}
+    <div className="w-full bg-white text-slate-900 pb-16">
+      {/* Compact Hero Section */}
       <HeroSection
-        title="About AUSPAC"
-        subtitle="Industry-leading maritime consultants with decades of combined expertise serving the global shipping community."
+        title="Corporate Profile"
+        subtitle="Independent maritime consultancy protecting operational, financial, and legal interests."
+        showImage={true}
       />
 
-      {/* Company Story */}
-      <section className="w-full py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Our Story</h2>
-              <p className="text-foreground/70 mb-4 leading-relaxed">
-                AUSPAC Maritime Consultants was founded with a singular mission: to provide independent, technically rigorous maritime consulting services to the global shipping industry.
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
+        
+        {/* Core Identity - Side-by-Side Layout */}
+        <section className="mb-16 border-t-2 border-slate-900 pt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            
+            {/* Left Column: Introduction */}
+            <div className="lg:col-span-6 space-y-6 text-lg text-slate-600 font-light leading-relaxed">
+              <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-slate-500 mb-8">
+                About AusPac
+              </h2>
+              
+              <p className="text-xl text-slate-900 font-medium leading-relaxed pb-6 border-b border-slate-200">
+                AusPac is an independent marine surveying and maritime consultancy delivering high-level surveying, superintendence, audit, and casualty response services.
               </p>
-              <p className="text-foreground/70 mb-4 leading-relaxed">
-                Drawing from our team's extensive experience in vessel operations, maritime law, insurance, and regulatory compliance, we deliver comprehensive solutions tailored to our clients' specific needs.
+              
+              <p className="pt-2">
+                We provide evidence-based, defensible reporting supported by regulatory expertise and commercial awareness.
               </p>
-              <p className="text-foreground/70 leading-relaxed">
-                Today, AUSPAC is recognized as a trusted partner by leading shipping companies, insurance providers, P&I clubs, and maritime authorities worldwide.
+              
+              <p>
+                Our practice is built on discretion, procedural discipline, and technical accuracy. We understand that maritime operations operate at the intersection of compliance, commercial exposure, and reputational risk.
               </p>
             </div>
-            <div className="rounded-lg bg-primary/10 p-8 border border-primary/20">
-              <h3 className="font-bold text-lg text-foreground mb-4">Key Milestones</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full bg-primary" />
-                  <span className="text-foreground/80">Founded with maritime industry experts</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full bg-primary" />
-                  <span className="text-foreground/80">Expanded global service network</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full bg-primary" />
-                  <span className="text-foreground/80">Pioneered rapid response capabilities</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full bg-primary" />
-                  <span className="text-foreground/80">Recognized for expert witness services</span>
-                </li>
-              </ul>
+
+            {/* Right Column: High-Density Expertise Box */}
+            <div className="lg:col-span-6">
+              <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-slate-500 mb-8">
+                Areas of Practice
+              </h2>
+              <div className="bg-slate-50 border border-slate-200 border-t-2 border-t-blue-800 p-8 sm:p-10">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-8">
+                  {expertise.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="text-blue-600 font-bold text-lg leading-none mt-0.5">&bull;</span>
+                      <span className="text-slate-700 text-sm font-medium leading-snug">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Expertise */}
-      <section className="w-full py-16 sm:py-24 bg-foreground/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12">Our Expertise</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {expertise.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 p-4 rounded-lg bg-card">
-                <CheckCircle2 size={20} className="text-primary flex-shrink-0" />
-                <span className="text-foreground/80">{item}</span>
-              </div>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Values */}
-      <section className="w-full py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Independence',
-                description: 'We provide impartial advice based on technical expertise, free from commercial conflicts of interest.',
-              },
-              {
-                title: 'Integrity',
-                description: 'Our reputation is built on honest, transparent reporting and ethical conduct in all engagements.',
-              },
-              {
-                title: 'Excellence',
-                description: 'We maintain the highest standards in technical analysis, documentation, and professional service delivery.',
-              },
-            ].map((value, index) => (
-              <div
-                key={index}
-                className="p-8 rounded-lg border border-border bg-card text-center hover:shadow-lg transition-shadow"
-              >
-                <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{value.description}</p>
-              </div>
-            ))}
+        {/* Slim Value Proposition / CTA Banner */}
+        <section className="bg-slate-400 text-white flex flex-col md:flex-row items-center justify-between p-8 sm:p-10 rounded-sm">
+          <div className="mb-6 md:mb-0 text-center md:text-left">
+            <h2 className="text-xl font-bold tracking-tight mb-2">Trusted Technical Advisors</h2>
+            <p className="text-sm text-slate-900 font-light max-w-2xl">
+              We act as an unimpeachable source of truth, protecting your operational, financial, and legal interests in complex maritime environments.
+            </p>
           </div>
-        </div>
-      </section>
+          <Link
+            href="/contact"
+            className="shrink-0 bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors"
+          >
+            Contact AusPac
+          </Link>
+        </section>
+
+      </main>
     </div>
   )
 }

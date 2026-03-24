@@ -1,191 +1,168 @@
 'use client'
 
 import HeroSection from '@/components/hero-section'
-import { Shield, AlertTriangle, BarChart3, Anchor, Waves, Zap } from 'lucide-react'
+import Link from 'next/link'
 
 export default function ServicesPage() {
   const services = [
     {
-      icon: Shield,
-      title: 'Marine Surveys & Inspections',
-      description: 'Comprehensive vessel assessments covering structural condition, mechanical systems, and cargo suitability.',
+      title: 'Marine Surveys & General Superintendence',
       details: [
-        'Pre-purchase and pre-sale surveys',
-        'Condition surveys for insurance purposes',
-        'Damage assessments',
-        'Holds and tank inspections',
-        'Equipment and machinery surveys',
+        'Loading & Discharging Supervision',
+        'Project Cargo Supervision',
+        'Draft Surveys & Dispute Investigation',
+        'On/Off-Hire Bunker & Condition Surveys',
+        'Bunker Quantity Disputes',
+        'Cargo Hatch Sealing',
+        'Vessel Condition & Damage Assessment',
+        'MO32 Container Vessel Inspections',
+        'Container, Flat Rack & Reefer Surveys',
       ],
     },
     {
-      icon: AlertTriangle,
-      title: 'Casualty Investigation',
-      description: 'Expert investigation of maritime incidents with detailed analysis and comprehensive reporting.',
+      title: 'P&I Survey & Casualty Response',
       details: [
-        'Accident scene investigation',
-        'Technical root cause analysis',
-        'Detailed incident reporting',
-        'Contributing factor identification',
-        'Recommendations for prevention',
+        'Marine Casualty & Incident Investigation',
+        'Cargo Damage & Shortage Claims',
+        'Draft Survey Dispute Analysis',
+        'Bunker Quantity & Quality Investigations',
+        'Hatch Cover Integrity Inspections',
+        'Terminal & Stevedore Damage Investigations',
+        'Pre-Purchase & Condition Surveys',
       ],
     },
     {
-      icon: BarChart3,
-      title: 'Claims Assessment',
-      description: 'Professional evaluation of insurance claims and loss assessments with impartial technical expertise.',
+      title: 'Bulk Commodities & Mining Logistics',
       details: [
-        'Claim investigation and analysis',
-        'Damage quantification',
-        'Liability determination',
-        'Repair cost evaluation',
-        'Settlement recommendations',
+        'Port Captaincy',
+        'Moisture Monitoring & TML Oversight',
+        'Liquefaction Risk Mitigation',
+        'Draft Survey Verification',
+        'Hold Fitness Advisory',
+        'Loading Optimisation',
       ],
     },
     {
-      icon: Anchor,
-      title: 'Regulatory Compliance',
-      description: 'Guidance on international maritime regulations and compliance with classification standards.',
+      title: 'Tanker, Terminal & Offshore Operations',
       details: [
-        'IMO regulation compliance',
-        'Classification society requirements',
-        'Flag state regulations',
-        'Port state control issues',
-        'Audit and certification support',
+        'Tanker Incident Investigation',
+        'Assistant Mooring Master',
+        'STS – POAC',
+        'Cargo Sampling',
+        'Expeditor Services',
       ],
     },
     {
-      icon: Waves,
-      title: 'Risk Management',
-      description: 'Strategic assessment and mitigation of maritime operational risks and vulnerabilities.',
+      title: 'Audit, Safety & Regulatory Compliance',
       details: [
-        'Risk identification and analysis',
-        'Safety management review',
-        'Environmental compliance',
-        'Operational audits',
-        'Risk reduction strategies',
+        'Lloyd’s Register Certified Auditors',
+        'ISM, ISPS, MARPOL, STCW, MLC Audits',
+        'Navigational & Operational Risk Audits',
+        'PSC-Style Inspections (IMO Res. 1052, AMSA Checklist 36)',
+        'AMSA, USCG & Paris MoU Readiness',
       ],
     },
     {
-      icon: Zap,
-      title: 'Expert Witness Services',
-      description: 'Qualified expert testimony for maritime disputes, insurance litigation, and legal proceedings.',
+      title: 'Container & Specialised Cargo Inspections',
       details: [
-        'Expert report preparation',
-        'Court testimony',
-        'Deposition services',
-        'Independent technical assessment',
-        'Professional expert opinion',
+        'Project Cargo & Heavy Lift',
+        'Container, Flat Rack & Reefer Inspections',
+        'Damage & Structural Condition Surveys',
+        'MO32 Inspections',
+      ],
+    },
+    {
+      title: 'Grain & Agricultural Cargo Services',
+      details: [
+        'Grain Loading Supervision (Australian Standards)',
+        'Charterer-Focused Loading Optimisation',
+        'Cargo Hold Fitness Advisory',
+        'FTL Hold Cleanliness Inspections',
+        'Authorised Officer (A.O.) Bulk Grain Inspection',
+        'Grain & Woodchip Sampling',
       ],
     },
   ]
 
   return (
-    <div className="w-full">
-      {/* Hero */}
+    <div className="w-full bg-white text-slate-900 pb-16">
+      {/* Compact Hero Section */}
       <HeroSection
-        title="Our Services"
-        subtitle="Comprehensive maritime consulting services tailored to your specific needs."
+        title="Services  Areas"
+        subtitle="Independent, evidence-based reporting and technical advisory across seven core maritime disciplines."
+        showImage={true}
       />
 
-      {/* Services Detail */}
-      <section className="w-full py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {services.map((service, index) => {
-              const Icon = service.icon
-              return (
-                <div
-                  key={index}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start pb-16 border-b border-border last:border-b-0 last:pb-0"
-                >
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 rounded-lg bg-primary/10">
-                        <Icon size={28} className="text-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-foreground">
-                        {service.title}
-                      </h3>
-                    </div>
-                    <p className="text-foreground/70 leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-                  </div>
-                  <div className="bg-muted/50 rounded-lg p-6 border border-border">
-                    <h4 className="font-bold text-foreground mb-4">What's Included:</h4>
-                    <ul className="space-y-2">
-                      {service.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="h-2 w-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                          <span className="text-foreground/80 text-sm">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
+        
+        {/* High-Density Services Grid */}
+        <section className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {services.map((service, index) => (
+              <div 
+                key={index} 
+                className="bg-slate-50 border border-slate-200 border-t-2 border-t-blue-800 p-6 sm:p-8"
+              >
+                <div className="flex items-start gap-4 mb-5 border-b border-slate-200 pb-4">
+                  <span className="text-sm font-bold text-blue-800 mt-1">
+                    0{index + 1}
+                  </span>
+                  <h3 className="text-xl font-bold text-slate-900 leading-tight">
+                    {service.title}
+                  </h3>
                 </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="w-full py-16 sm:py-24 bg-foreground/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Our Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              {
-                step: '01',
-                title: 'Engagement',
-                description: 'Initial consultation to understand your requirements and scope',
-              },
-              {
-                step: '02',
-                title: 'Assessment',
-                description: 'Detailed technical analysis and investigation of the matter',
-              },
-              {
-                step: '03',
-                title: 'Documentation',
-                description: 'Comprehensive reporting with findings and recommendations',
-              },
-              {
-                step: '04',
-                title: 'Support',
-                description: 'Ongoing consultation and expert testimony as needed',
-              },
-            ].map((item, index) => (
-              <div key={index} className="relative">
-                <div className="p-6 rounded-lg border border-border bg-card text-center">
-                  <div className="text-4xl font-bold text-primary/20 mb-2">{item.step}</div>
-                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-foreground/70">{item.description}</p>
-                </div>
-                {index < 3 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-primary/30 text-xl">
-                    →
-                  </div>
-                )}
+                
+                <ul className="space-y-2.5">
+                  {service.details.map((detail, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-blue-600 font-bold text-lg leading-none mt-0.5">&bull;</span>
+                      <span className="text-slate-700 text-sm leading-snug">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section className="w-full py-16 sm:py-20 bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Need Professional Maritime Services?</h2>
-          <p className="text-lg opacity-90 mb-8">Contact us today for a consultation.</p>
-          <a
+        {/* Operational Process - Compact Horizontal Row */}
+        <section className="mb-16 border-t border-slate-200 pt-12">
+          <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-slate-500 mb-8 text-center">
+            Operational Process
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { step: '01', title: 'Engagement', desc: 'Scope & parameters definition.' },
+              { step: '02', title: 'Assessment', desc: 'Rigorous on-site investigation.' },
+              { step: '03', title: 'Reporting', desc: 'Evidence-based documentation.' },
+              { step: '04', title: 'Advisory', desc: 'Ongoing technical support.' },
+            ].map((item, index) => (
+              <div key={index} className="text-center sm:text-left">
+                <div className="text-2xl font-light text-slate-300 mb-2">{item.step}</div>
+                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-1">{item.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Slim CTA Banner */}
+         <section className="bg-blue-900 text bg-slate-500 flex flex-col md:flex-row items-center justify-between p-8 sm:p-12 rounded-lg">
+          <div className="mb-6 md:mb-0 text-center md:text-left">
+            <h2 className="text-xl font-bold tracking-tight mb-2">Require Technical Advisory?</h2>
+            <p className="text-sm text-slate-300 font-light">
+              Contact AusPac to discuss your operational, compliance, or casualty response requirements.
+            </p>
+          </div>
+          <Link
             href="/contact"
-            className="inline-block bg-primary-foreground hover:bg-primary-foreground/90 text-primary px-8 py-3 rounded-lg font-semibold transition-colors"
+            className="shrink-0 bg-blue-800 text-white px-8 py-3 text-sm font-bold tracking-widest uppercase"
           >
-            Request a Consultation
-          </a>
-        </div>
-      </section>
+            Initiate Consultation
+          </Link>
+        </section>
+
+      </main>
     </div>
   )
 }

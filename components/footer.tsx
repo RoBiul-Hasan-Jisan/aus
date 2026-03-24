@@ -1,97 +1,122 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageCircle, Smartphone } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary text-primary-foreground border-t">
+    <footer className="bg-slate-200 border-t-4 border-slate-700 text-slate-700 pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
         {/* Main Footer Content */}
-        <div className="py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          
           {/* Company Info */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary-foreground rounded-full flex items-center justify-center">
-                <span className="text-primary text-sm font-black">A</span>
-              </div>
-              <h3 className="font-bold text-lg">AUSPAC</h3>
-            </div>
-            <p className="text-sm opacity-90">
-              Independent maritime consulting specialists serving the global maritime industry.
+          <div className="md:col-span-12 lg:col-span-4 pr-0 lg:pr-8">
+ <div className="md:col-span-12 lg:col-span-4 pr-0 lg:pr-8 mb-6">
+  <h3 className="font-bold text-2xl tracking-widest text-slate-900 uppercase">
+    AUSPAC
+  </h3>
+  <span className="text-sm text-slate-700 font-light">
+    Maritime Consultants
+  </span>
+</div>
+
+            <p className="text-sm text-slate-600 leading-relaxed font-light">
+              Independent marine surveying and maritime consultancy delivering evidence-based, defensible reporting to protect operational, financial, and legal interests globally.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-bold mb-4">Navigation</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="opacity-90 hover:opacity-100 transition-opacity">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="opacity-90 hover:opacity-100 transition-opacity">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="opacity-90 hover:opacity-100 transition-opacity">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/sectors" className="opacity-90 hover:opacity-100 transition-opacity">
-                  Sectors
-                </Link>
-              </li>
-              <li>
-                <Link href="/why-auspac" className="opacity-90 hover:opacity-100 transition-opacity">
-                  Why AusPac
-                </Link>
-              </li>
+          <div className="md:col-span-4 lg:col-span-3">
+            <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-slate-700 mb-6">
+              Navigation
+            </h4>
+            <ul className="space-y-3 text-sm font-medium">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About AusPac', path: '/about' },
+                { name: 'Services', path: '/services' },
+                { name: 'Sectors', path: '/sectors' },
+                { name: 'Why AusPac', path: '/why-auspac' },
+                { name: 'Contact', path: '/contact' },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.path} 
+                    className="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="font-bold mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <Phone size={16} className="mt-0.5 flex-shrink-0" />
-                <a href="tel:+61" className="opacity-90 hover:opacity-100 transition-opacity">
-                  +61 (0) 2 XXXX XXXX
+          <div className="md:col-span-8 lg:col-span-5">
+            <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-slate-700 mb-6">
+              Direct Channels
+            </h4>
+            <ul className="space-y-4 text-sm font-medium text-slate-700">
+              <li className="flex items-start gap-3">
+                <Mail size={18} className="mt-0.5 shrink-0 text-slate-600" />
+                <a href="mailto:survey@auspac.au" className="hover:text-blue-800 transition-colors">
+                  survey@auspac.au
                 </a>
               </li>
-              <li className="flex items-start gap-2">
-                <Mail size={16} className="mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@auspac.com" className="opacity-90 hover:opacity-100 transition-opacity">
-                  info@auspac.com
-                </a>
+              
+              <li className="flex items-start gap-3">
+                <Smartphone size={18} className="mt-0.5 shrink-0 text-slate-600" />
+                <div className="flex flex-col">
+                  <span className="text-xs text-slate-600 uppercase tracking-wider mb-0.5">Mobile / WhatsApp (Intl)</span>
+                  <a href="tel:+61480556364" className="hover:text-blue-800 transition-colors">
+                    +61 480 556 364
+                  </a>
+                </div>
               </li>
-              <li className="flex items-start gap-2">
-                <MessageCircle size={16} className="mt-0.5 flex-shrink-0" />
-                <a href="https://wa.me/" className="opacity-90 hover:opacity-100 transition-opacity">
-                  WhatsApp
-                </a>
+
+              <li className="flex items-start gap-3">
+                <Phone size={18} className="mt-0.5 shrink-0 text-slate-600" />
+                <div className="flex flex-col">
+                  <span className="text-xs text-slate-600 uppercase tracking-wider mb-0.5">Within Australia</span>
+                  <a href="tel:0480556364" className="hover:text-blue-800 transition-colors">
+                    0480 556 364
+                  </a>
+                </div>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0" />
-                <span className="opacity-90">
-                  Sydney, Australia
+
+              <li className="flex items-start gap-3">
+                <MessageCircle size={18} className="mt-0.5 shrink-0 text-slate-600" />
+                <div className="flex flex-col">
+                  <span className="text-xs text-slate-600 uppercase tracking-wider mb-0.5">WeChat</span>
+                  <span className="text-slate-700">CaptHasan1977</span>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-3 pt-2">
+                <MapPin size={18} className="mt-0.5 shrink-0 text-slate-600" />
+                <span className="leading-relaxed">
+                  PO Box 3058<br />
+                  Melbourne, Australia
                 </span>
               </li>
             </ul>
           </div>
+
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/20 py-6 text-sm text-center opacity-90">
-          <p>&copy; {currentYear} AUSPAC Maritime Consultants. All rights reserved.</p>
+        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-slate-700">
+          <p>&copy; {currentYear} AusPac Maritime Consultants. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-blue-800 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-blue-800 transition-colors">Terms of Service</Link>
+          </div>
         </div>
+        
       </div>
     </footer>
   )
