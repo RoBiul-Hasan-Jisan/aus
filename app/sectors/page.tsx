@@ -63,7 +63,6 @@ export default function SectorsPage() {
 
   return (
     <div className="w-full bg-white text-slate-900 pb-16">
-      {/* Hero Section */}
       <HeroSection
         title="Sector Expertise"
         subtitle="Independent technical oversight and casualty response for the world's most critical maritime operations."
@@ -71,58 +70,62 @@ export default function SectorsPage() {
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
-        
-        {/* Sectors Grid */}
+
+        {/* Sectors Grid
+            Mobile:  2-col compact
+            Desktop: 3-col full-size — exactly as original */}
         <section className="mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6 lg:gap-8 items-stretch">
             {sectors.map((sector, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-white border border-slate-200 flex flex-col"
               >
                 {/* Header & Services */}
-                <div className="p-6 sm:p-8 grow">
-                  <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-700 text-xs font-bold">
+                <div className="p-3 sm:p-8 grow">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-6 border-b border-slate-100 pb-2 sm:pb-4">
+                    <span className="flex items-center justify-center w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-blue-50 text-blue-700 text-[10px] sm:text-xs font-bold shrink-0">
                       {index + 1}
                     </span>
-                    <h3 className="text-xl font-bold text-slate-900 leading-tight">
+                    <h3 className="text-[11px] sm:text-xl font-bold text-slate-900 leading-tight">
                       {sector.title}
                     </h3>
                   </div>
 
                   {/* Optional Commodities */}
                   {sector.commodities && (
-                    <div className="mb-6 p-4 bg-slate-50 border-l-4 border-blue-600">
-                      <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-2">Commodities Supported</h4>
-                      <p className="text-sm text-slate-700 leading-relaxed font-medium">
+                    <div className="mb-3 sm:mb-6 p-2 sm:p-4 bg-slate-50 border-l-4 border-blue-600">
+                      <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-1 sm:mb-2">
+                        Commodities Supported
+                      </h4>
+                      <p className="text-[10px] sm:text-sm text-slate-700 leading-relaxed font-medium">
                         {sector.commodities}
                       </p>
                     </div>
                   )}
 
-                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-800 mb-4">
+                  <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-blue-800 mb-2 sm:mb-4">
                     {sector.subtitle}
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-1.5 sm:space-y-3">
                     {sector.services.map((service, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
-                        <span className="text-slate-700 text-sm leading-snug">{service}</span>
+                      <li key={idx} className="flex items-start gap-1.5 sm:gap-3">
+                        <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0" />
+                        <span className="text-slate-700 text-[10px] sm:text-sm leading-snug">{service}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Value Footer */}
-                <div className="bg-slate-50 text-slate-900 p-6 sm:p-8 mt-auto border-t border-slate-200">
-                  <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-4">
+                <div className="bg-slate-50 text-slate-900 p-3 sm:p-8 mt-auto border-t border-slate-200">
+                  <h4 className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 mb-2 sm:mb-4">
                     {sector.valueTitle}
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-1.5 sm:space-y-3">
                     {sector.valuePoints.map((point, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-slate-600 leading-relaxed">
-                        <span className="text-blue-600 font-bold mt-0.5">✓</span>
+                      <li key={idx} className="flex items-start gap-1.5 sm:gap-3 text-[10px] sm:text-sm text-slate-600 leading-relaxed">
+                        <span className="text-blue-600 font-bold mt-0.5 shrink-0">✓</span>
                         <span>{point}</span>
                       </li>
                     ))}
@@ -134,7 +137,7 @@ export default function SectorsPage() {
           </div>
         </section>
 
-        {/* CTA Banner */}
+        {/* CTA Banner — unchanged */}
         <section className="bg-blue-900 text bg-slate-500 flex flex-col md:flex-row items-center justify-between p-8 sm:p-12 rounded-lg">
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <h2 className="text-2xl font-bold tracking-tight mb-2">Discuss Your Operational Requirements</h2>
@@ -143,13 +146,13 @@ export default function SectorsPage() {
             </p>
           </div>
           <Link
-  href="/contact"
-  className="shrink-0 bg-white text-blue-900 px-10 py-4 text-sm font-bold tracking-widest uppercase 
-  rounded-md shadow-md hover:shadow-lg hover:bg-blue-900 hover:text-white 
-  transition-all duration-300 ease-in-out"
->
-  Contact AusPac
-</Link>
+            href="/contact"
+            className="shrink-0 bg-white text-blue-900 px-10 py-4 text-sm font-bold tracking-widest uppercase 
+            rounded-md shadow-md hover:shadow-lg hover:bg-blue-900 hover:text-white 
+            transition-all duration-300 ease-in-out"
+          >
+            Contact AusPac
+          </Link>
         </section>
 
       </main>
