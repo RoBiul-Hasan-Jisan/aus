@@ -76,11 +76,13 @@ export default function AboutPage() {
             </p>
           </div>
           <Link
-            href="/contact"
-            className="shrink-0 bg-blue-400 hover:bg-blue-500 text-white px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors"
-          >
-            Contact AusPac
-          </Link>
+  href="/contact"
+  className="shrink-0 bg-white text-blue-900 px-10 py-4 text-sm font-bold tracking-widest uppercase 
+  rounded-md shadow-md hover:shadow-lg hover:bg-blue-900 hover:text-white 
+  transition-all duration-300 ease-in-out"
+>
+  Contact AusPac
+</Link>
         </section>
 
       </main>

@@ -174,11 +174,13 @@ export default function Home() {
             </p>
           </div>
           <Link
-            href="/contact"
-            className="shrink-0 bg-white text-slate-900 px-8 py-3.5 rounded-sm text-sm font-bold shadow-sm"
-          >
-            Contact Us Today
-          </Link>
+  href="/contact"
+  className="shrink-0 bg-white text-blue-900 px-10 py-4 text-sm font-bold tracking-widest uppercase 
+  rounded-md shadow-md hover:shadow-lg hover:bg-blue-900 hover:text-white 
+  transition-all duration-300 ease-in-out"
+>
+  Contact AusPac
+</Link>
         </div>
       </section>
 

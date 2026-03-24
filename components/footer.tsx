@@ -111,10 +111,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-slate-700">
           <p>&copy; {currentYear} AusPac Maritime Consultants. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-blue-800 transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-blue-800 transition-colors">Terms of Service</Link>
-          </div>
+          
         </div>
         
       </div>
