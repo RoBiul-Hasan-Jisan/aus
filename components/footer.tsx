@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Phone, MapPin, MessageCircle, Smartphone } from 'lucide-react'
+import { navigationLinks, contactInfo, footerContent } from '@/data/footer-data'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,14 +17,14 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-12 lg:col-span-4 pr-0 lg:pr-8">
             <div className="mb-3 sm:mb-6">
               <h3 className="font-bold text-xl sm:text-2xl tracking-widest text-slate-900 uppercase">
-                AUSPAC
+                {footerContent.companyName}
               </h3>
               <span className="text-sm text-slate-700 font-light">
-                Maritime Consultants
+                {footerContent.companyTagline}
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-              Independent marine surveying and maritime consultancy delivering evidence-based, defensible reporting to protect operational, financial, and legal interests globally.
+              {footerContent.description}
             </p>
           </div>
 
@@ -34,19 +34,12 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm font-medium">
-              {[
-                { name: 'Home', path: '/' },
-                { name: 'About AusPac', path: '/about' },
-                { name: 'Services', path: '/services' },
-                { name: 'Sectors', path: '/sectors' },
-                { name: 'Why AusPac', path: '/why-auspac' },
-                { name: 'Contact', path: '/contact' },
-              ].map((link) => (
+              {navigationLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.path}
                     className="transition-colors hover:text-[#0d5861]"
-style={{ color: '#0d5861' }}
+                    style={{ color: footerContent.hoverColor }}
                   >
                     {link.name}
                   </Link>
@@ -61,61 +54,50 @@ style={{ color: '#0d5861' }}
               Direct Channels
             </h4>
             <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm font-medium text-slate-700">
-              <li className="flex items-start gap-2 sm:gap-3">
-                <Mail size={14} className="mt-0.5 shrink-0 text-slate-600 sm:hidden" />
-                <Mail size={18} className="mt-0.5 shrink-0 text-slate-600 hidden sm:block" />
-                <a href="mailto:ops@auspacmaritime.com.au" className="hover:text-blue-800 transition-colors break-all">
-                ops@auspacmaritime.com.au
-                </a>
-              </li>
-
-              <li className="flex items-start gap-2 sm:gap-3">
-                <Smartphone size={14} className="mt-0.5 shrink-0 text-slate-600 sm:hidden" />
-                <Smartphone size={18} className="mt-0.5 shrink-0 text-slate-600 hidden sm:block" />
-                <div className="flex flex-col">
-                  <span className="text-[9px] sm:text-xs text-slate-600 uppercase tracking-wider mb-0.5">Mobile / WhatsApp (Intl)</span>
-                  <a href="tel:+61480556364" className="hover:text-blue-800 transition-colors">
-                    +61 480 556 364
-                  </a>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-2 sm:gap-3">
-                <Phone size={14} className="mt-0.5 shrink-0 text-slate-600 sm:hidden" />
-                <Phone size={18} className="mt-0.5 shrink-0 text-slate-600 hidden sm:block" />
-                <div className="flex flex-col">
-                  <span className="text-[9px] sm:text-xs text-slate-600 uppercase tracking-wider mb-0.5">Within Australia</span>
-                  <a href="tel:0480556364" className="hover:text-blue-800 transition-colors">
-                    0480 556 364
-                  </a>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-2 sm:gap-3">
-                <MessageCircle size={14} className="mt-0.5 shrink-0 text-slate-600 sm:hidden" />
-                <MessageCircle size={18} className="mt-0.5 shrink-0 text-slate-600 hidden sm:block" />
-                <div className="flex flex-col">
-                  <span className="text-[9px] sm:text-xs text-slate-600 uppercase tracking-wider mb-0.5">WeChat</span>
-                  <span className="text-slate-700">CaptHasan1977</span>
-                </div>
-              </li>
-
-              <li className="flex items-start gap-2 sm:gap-3 pt-1 sm:pt-2">
-                <MapPin size={14} className="mt-0.5 shrink-0 text-slate-600 sm:hidden" />
-                <MapPin size={18} className="mt-0.5 shrink-0 text-slate-600 hidden sm:block" />
-                <span className="leading-relaxed">
-                  PO Box 3058<br />
-                  Melbourne, Australia
-                </span>
-              </li>
+              {contactInfo.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <li key={index} className="flex items-start gap-2 sm:gap-3">
+                    <>
+                      <Icon size={14} className="mt-0.5 shrink-0 text-slate-600 sm:hidden" />
+                      <Icon size={18} className="mt-0.5 shrink-0 text-slate-600 hidden sm:block" />
+                    </>
+                    
+                    {item.label ? (
+                      <div className="flex flex-col">
+                        <span className="text-[9px] sm:text-xs text-slate-600 uppercase tracking-wider mb-0.5">
+                          {item.label}
+                        </span>
+                        {item.href ? (
+                          <a href={item.href} className="hover:text-blue-800 transition-colors">
+                            {item.value}
+                          </a>
+                        ) : (
+                          <span className="text-slate-700">{item.value}</span>
+                        )}
+                      </div>
+                    ) : item.isMultiLine ? (
+                      <span className="leading-relaxed whitespace-pre-line">
+                        {item.value}
+                      </span>
+                    ) : item.href ? (
+                      <a href={item.href} className="hover:text-blue-800 transition-colors break-all">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span className="text-slate-700">{item.value}</span>
+                    )}
+                  </li>
+                )
+              })}
             </ul>
           </div>
 
         </div>
 
-        {/* Bottom Bar — unchanged */}
+        {/* Bottom Bar */}
         <div className="border-t border-slate-700 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-slate-700">
-          <p>&copy; {currentYear} AusPac Maritime Consultants. All rights reserved.</p>
+          <p>&copy; {currentYear} {footerContent.copyrightPrefix}</p>
         </div>
 
       </div>
