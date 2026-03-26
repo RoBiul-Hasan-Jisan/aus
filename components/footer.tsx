@@ -81,9 +81,9 @@ export default function Footer() {
                         {item.value}
                       </span>
                     ) : item.href ? (
-                      <a href={item.href} className="hover:text-blue-800 transition-colors break-all whitespace-nowrap">
-                        {item.value}
-                      </a>
+                      <a href={item.href} className="hover:text-blue-800 transition-colors whitespace-nowrap text-[10px] sm:text-sm">
+  {item.value}
+</a>
                     ) : (
                       <span className="text-slate-700">{item.value}</span>
                     )}
