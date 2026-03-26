@@ -65,7 +65,7 @@ style={{ color: '#0d5861' }}
                 <Mail size={14} className="mt-0.5 shrink-0 text-slate-600 sm:hidden" />
                 <Mail size={18} className="mt-0.5 shrink-0 text-slate-600 hidden sm:block" />
                 <a href="mailto:survey@auspac.au" className="hover:text-blue-800 transition-colors break-all">
-                  survey@auspac.au
+                ops@auspacmaritime.com.au
                 </a>
               </li>
 
