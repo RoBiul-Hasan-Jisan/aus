@@ -478,14 +478,13 @@ export const metadata: Metadata = {
     images: ['/images/AUSPAC LOGO1.png'], 
   },
 
-  icons: {
-    icon: [
-      { url: '/icon-light-32x32.jpeg', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
-      { url: '/icon1.svg', type: 'image/svg+xml' },
-    ],
-    apple: '/icon.png',
-  },
+ icons: {
+  icon: [
+    { url: '/favicon.ico' },   
+    { url: '/icon1.svg', type: 'image/svg+xml' },
+  ],
+  apple: '/icon1.png',
+},
 
   alternates: {
     canonical: 'https://auspacmaritime.com.au', 
