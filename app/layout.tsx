@@ -481,9 +481,9 @@ export const metadata: Metadata = {
  icons: {
   icon: [
     { url: '/favicon.ico' },   
-    { url: '/icon1.svg', type: 'image/svg+xml' },
+    { url: '/icon.svg', type: 'image/svg+xml' },
   ],
-  apple: '/icon1.png',
+  apple: '/icon.png',
 },
 
   alternates: {
