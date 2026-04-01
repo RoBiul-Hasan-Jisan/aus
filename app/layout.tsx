@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -9,10 +10,11 @@ const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://auspacmaritime.com.au'), 
+  metadataBase: new URL('https://auspacmaritime.com.au'),
 
   title: {
-    default: 'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
+    default:
+      'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
     template: '%s | AUSPAC Maritime Consultants',
   },
 
@@ -437,6 +439,8 @@ export const metadata: Metadata = {
     'AusPac Maritime Consultants',
     'AUSPAC marine surveyors',
   ],
+
+
   authors: [{ name: 'AUSPAC Maritime Consultants' }],
   applicationName: 'AUSPAC Maritime Consultants',
   creator: 'AUSPAC Maritime Consultants',
@@ -455,14 +459,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    url: 'https://auspacmaritime.com.au', 
+    url: 'https://auspacmaritime.com.au',
     siteName: 'AUSPAC Maritime Consultants',
-    title: 'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
+    title:
+      'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
     description:
       'Independent maritime consulting specialists in marine surveys, casualty investigation, and maritime compliance for insurance, mining, and oil & gas industries.',
     images: [
       {
-        url: '/images/AUSPAC LOGO1.png', // ← add a 1200×630px OG image to /public
+        url: '/images/AUSPAC LOGO1.png',
         width: 1200,
         height: 630,
         alt: 'AUSPAC Maritime Consultants',
@@ -472,32 +477,54 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
+    title:
+      'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
     description:
       'Independent maritime consulting specialists in marine surveys, casualty investigation, and maritime compliance.',
-    images: ['/images/AUSPAC LOGO1.png'], 
+    images: ['/images/AUSPAC LOGO1.png'],
   },
 
- icons: {
-  icon: [
-    { url: '/favicon.ico' },   
-    { url: '/icon.svg', type: 'image/svg+xml' },
-  ],
-  apple: '/icon.png',
-},
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/icon.png',
+  },
 
   alternates: {
-    canonical: 'https://auspacmaritime.com.au', 
+    canonical: 'https://auspacmaritime.com.au',
   },
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "AUSPAC Maritime Consultants",
+    url: "https://auspacmaritime.com.au",
+    logo: "https://auspacmaritime.com.au/images/AUSPAC LOGO1.png",
+    sameAs: [
+      "https://www.linkedin.com",
+      "https://www.google.com"
+    ]
+  }
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
+
       <body className="font-sans antialiased flex flex-col min-h-screen">
         <Header />
         <main className="flex-1">{children}</main>
