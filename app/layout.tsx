@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -13,9 +12,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://auspacmaritime.com.au'),
 
   title: {
-    default:
-      'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
-    template: '%s | AUSPAC Maritime Consultants',
+    default: 'AusPac Maritime Consultants',
+    template: '%s | AusPac Maritime Consultants',
   },
 
   description:
@@ -441,9 +439,11 @@ export const metadata: Metadata = {
   ],
 
 
-  authors: [{ name: 'AUSPAC Maritime Consultants' }],
-  applicationName: 'AUSPAC Maritime Consultants',
-  creator: 'AUSPAC Maritime Consultants',
+   authors: [{ name: 'AusPac Maritime Consultants' }],
+
+  applicationName: 'AusPac Maritime Consultants',
+
+  creator: 'AusPac Maritime Consultants',
 
   robots: {
     index: true,
@@ -460,27 +460,31 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     url: 'https://auspacmaritime.com.au',
-    siteName: 'AUSPAC Maritime Consultants',
-    title:
-      'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
+    siteName: 'AusPac Maritime Consultants',
+
+    title: 'AusPac Maritime Consultants',
+
     description:
       'Independent maritime consulting specialists in marine surveys, casualty investigation, and maritime compliance for insurance, mining, and oil & gas industries.',
+
     images: [
       {
         url: '/images/AUSPAC LOGO1.png',
         width: 1200,
         height: 630,
-        alt: 'AUSPAC Maritime Consultants',
+        alt: 'AusPac Maritime Consultants',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title:
-      'AUSPAC Maritime Consultants | Marine Surveys & Casualty Investigation',
+
+    title: 'AusPac Maritime Consultants',
+
     description:
       'Independent maritime consulting specialists in marine surveys, casualty investigation, and maritime compliance.',
+
     images: ['/images/AUSPAC LOGO1.png'],
   },
 
@@ -489,6 +493,7 @@ export const metadata: Metadata = {
       { url: '/favicon.ico' },
       { url: '/icon.svg', type: 'image/svg+xml' },
     ],
+
     apple: '/icon.png',
   },
 
@@ -502,34 +507,75 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "AUSPAC Maritime Consultants",
-    url: "https://auspacmaritime.com.au",
-    logo: "https://auspacmaritime.com.au/images/AUSPAC LOGO1.png",
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+
+    name: 'AusPac Maritime Consultants',
+
+    url: 'https://auspacmaritime.com.au',
+
+    logo: 'https://auspacmaritime.com.au/images/AUSPAC LOGO1.png',
+
     sameAs: [
-      "https://www.linkedin.com",
-      "https://www.google.com"
-    ]
+      'https://www.linkedin.com',
+    ],
+  }
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+
+    name: 'AusPac Maritime Consultants',
+
+    alternateName: 'AusPac',
+
+    url: 'https://auspacmaritime.com.au',
   }
 
   return (
     <html lang="en">
       <head>
+
+        <meta
+          name="application-name"
+          content="AusPac Maritime Consultants"
+        />
+
+        <meta
+          property="og:site_name"
+          content="AusPac Maritime Consultants"
+        />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
         />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+
       </head>
 
       <body className="font-sans antialiased flex flex-col min-h-screen">
+
         <Header />
-        <main className="flex-1">{children}</main>
+
+        <main className="flex-1">
+          {children}
+        </main>
+
         <Footer />
+
         <Analytics />
+
       </body>
     </html>
   )
